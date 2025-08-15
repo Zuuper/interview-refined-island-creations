@@ -1,0 +1,128 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding challenges for Refined Island Creations</title>
+    <meta
+      name="description"
+      content="Refined Island creation is website development agency"
+    />
+    <link
+      rel="icon"
+      href="/assets/favicon.ico"
+      type="image/x-icon"
+      sizes="48x48"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      /* 
+        Need to customize the behavior of tailwindcss when hamdling dark mode to use class instead of prefers-color-scheme
+        src: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
+       */
+      @custom-variant dark (&:where(.dark, .dark *));
+    </style>
+  </head>
+  <body
+    class="p-4 max-md:space-y-8 space-y-24 dark:bg-neutral-900 dark:text-white"
+  >
+    <!-- Navigation bar (current functionality for toggle dark mode) -->
+    <nav
+      class="fixed top-4 right-4 z-10 aspect-square w-16 bg-white dark:bg-neutral-100 flex justify-center items-center"
+    >
+      <!-- button to toggle dark mode -->
+      <button class="w-8 aspect-square overflow-hidden" id="dark-mode-toggle">
+        <span class="translate-all transition-all duration-300 flex w-16">
+          <img
+            src="assets/icons/sun.svg"
+            alt="light mode icon"
+            class="w-8 aspect-square"
+          />
+          <img
+            src="assets/icons/moon.svg"
+            alt="light mode icon"
+            class="w-8 aspect-square"
+          />
+        </span>
+      </button>
+    </nav>
+    <!-- Hero section -->
+    <header class="space-y-4 max-h-screen">
+      <h1
+        class="text-2xl lg:text-5xl font-black dark:text-white uppercase flex flex-col"
+      >
+        <span class="tracking-wide">An Invitation</span>
+        <span>to The hidden</span>
+      </h1>
+      <img
+        src="assets/images/pexels-ella-olsson-572949-1640777.jpg"
+        alt="image from pexel by ella olsson"
+        class="w-full bg-gray-500 h-[50vh] md:max-lg:h-[30vh] object-cover"
+      />
+      <div
+        class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 xl:gap-8"
+      >
+        <div class="uppercase">
+          <p class="font-semibold max-lg:text-xs">Curated Selection of</p>
+          <p class="font-bold text-lg xl:text-2xl">Fine Spirits</p>
+        </div>
+        <div class="uppercase">
+          <p class="font-semibold max-lg:text-xs">a hidden gem</p>
+          <p class="font-bold text-lg xl:text-2xl">7 Nights/Week</p>
+        </div>
+        <div class="col-span-2 xl:col-span-3">
+          <p class="font-medium text-xs/6 xl:text-sm/6 xl:max-w-10/12">
+            Step into a place where time slows down and the night feels endless.
+            Our speakeasy offers a unique, intimate atmosphere, perfect for
+            those seeking something more than the usual. Come for the experienc,
+            stay for the vibe.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Image gallery section -->
+    <section class="text-center space-y-8">
+      <div>
+        <h2 class="font-black text-2xl lg:text-5xl uppercase">Behind</h2>
+        <p class="font-black mb-4">Closed doors</p>
+        <p class="font-semibold text-xs/6 md:max-w-8/12 xl:max-w-6/12 mx-auto">
+          Our speakeasy offers an atmosphere that's both sleek and released,
+          perfect for those who appreciate the finer things in life. Whether
+          you're here for a quite drink or to linger into the night, every
+          moment feels exclusive
+        </p>
+      </div>
+      <div
+        class="grid sm:grid-cols-2 md:grid-cols-3 gap-4"
+        id="image-gallery"
+      ></div>
+      <button
+        class="uppercase bg-black text-white max-lg:py-2 max-lg:px-4 max-lg:text-sm py-4 px-8 lg:min-h-[36px] hover:bg-neutral-700 dark:bg-neutral-100 dark:text-black translate-all duration-200"
+      >
+        Guest list
+      </button>
+    </section>
+
+    <!-- Dialog to show pop up when clicking image -->
+    <dialog
+      id="image-dialog"
+      class="fixed top-0 left-0 w-screen h-screen bg-black/50"
+    >
+      <!-- Main element of the dialog -->
+      <div
+        class="absolute max-sm:w-screen max-sm:h-dvh md:aspect-square md:w-3/5 lg:w-2/5 top-1/2 left-1/2 -translate-1/2 bg-white dark:bg-neutral-900"
+      >
+        <button
+          id="close-dialog"
+          class="z-10 bg-black p-1 absolute top-0 right-0 text-white max-sm:text-xs text-sm hover:bg-neutral-700 dark:bg-neutral-100 dark:text-black translate-all duration-200"
+        >
+          close
+        </button>
+        <img id="dialog-img-placeholder" class="w-full h-full object-contain" />
+      </div>
+    </dialog>
+  </body>
+  <script src="script.js"></script>
+</html>
